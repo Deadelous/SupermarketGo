@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Backend" options="-bootclasspath &quot;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\resources.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\rt.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\sunrsasign.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jsse.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jce.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\charsets.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jfr.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\classes;D:/Program Files (x86)/jdk 8/jre/lib/jfxrt.jar&quot;" />
+      <module name="Backend" options="-bootclasspath &quot;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\resources.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\rt.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\sunrsasign.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jsse.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jce.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\charsets.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\lib\jfr.jar;D:\Program Files (x86)\IntelliJ IDEA 2018.2.3\jre64\classes;$PROJECT_DIR$/../../../jdk 8/jre/lib/jfxrt.jar&quot;" />
     </option>
   </component>
 </project>
