@@ -2,7 +2,7 @@ package model;
 
 public class product {
     private int id;
-    private String product;
+    private String name;
     private String description;
     private double price;
 
@@ -18,12 +18,12 @@ public class product {
         this.id = id;
     }
 
-    public String getProduct() {
-        return product;
+    public String getName() {
+        return name;
     }
 
-    private void setProduct(String product) {
-        this.product = product;
+    private void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -46,7 +46,7 @@ public class product {
     public String toString() {
         return "product{" +
                 "id=" + id +
-                ", product='" + product + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 '}';

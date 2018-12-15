@@ -22,12 +22,8 @@ public class accountRepository implements IAccountContext {
     }
 
     @Override
-    public profile getProfile(profile profile) {
-        return context.getProfile(profile);
+    public account updateAccount(account account) {
+        return context.updateAccount(account);
     }
 
-    @Override
-    public profile updateProfile(profile profile) {
-        return context.updateProfile(profile);
-    }
 }
