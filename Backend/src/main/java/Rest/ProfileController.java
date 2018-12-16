@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Path("/Profile")
-public class RestController {
+public class ProfileController {
     private ProfileRepository profileRepository = new ProfileRepository(new profileContext());
     @GET
     @Path("/info/{id}")
@@ -35,4 +35,27 @@ public class RestController {
         return JsonLogic.getResponse(200, result);
     }
 
+
+    @POST
+    @Consumes("application/json")
+    @Produces("application/json")
+    @Path("/Create")
+    public Response createProfile(String json) {
+        Profile profile = (Profile) JsonLogic.getObject(Profile.class, json);
+        JsonResult result = new JsonResult();
+        if (profile != null) {
+            if (profileRepository.createProfile(profile) != null) {
+                result.setItem(profile);
+                result.setResult(true);
+                result.setMessage("Profile created");
+            } else {
+                result.setResult(false);
+                result.setMessage("Profile is not created");
+            }
+        } else {
+            result.setMessage("You have sent no valid json. We received: '" + json + "'");
+            result.setResult(false);
+        }
+        return JsonLogic.getResponse(200, result);
+    }
 }

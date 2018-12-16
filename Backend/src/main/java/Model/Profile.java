@@ -11,6 +11,14 @@ public class Profile {
 
     }
 
+    public Profile(String id, String name, String email, String adress, int age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.adress = adress;
+        this.age = age;
+    }
+
     public Profile(String id){
         this.id = id;
     }

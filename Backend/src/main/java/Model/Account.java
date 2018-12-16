@@ -4,10 +4,14 @@ public class Account {
     private int id;
     private String username;
     private String password;
-    private double balance;
 
     public Account(){
 
+    }
+
+    public Account(String username, String password){
+        this.username = username;
+        this.password = password;
     }
 
     public Account(int id){
@@ -18,7 +22,7 @@ public class Account {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -26,7 +30,7 @@ public class Account {
         return username;
     }
 
-    private void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -34,17 +38,10 @@ public class Account {
         return password;
     }
 
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public double getBalance() {
-        return balance;
-    }
-
-    private void setBalance(double balance) {
-        this.balance = balance;
-    }
 
     @Override
     public String toString() {
@@ -52,7 +49,6 @@ public class Account {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", balance=" + balance +
                 '}';
     }
 }

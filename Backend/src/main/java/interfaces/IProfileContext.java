@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IProfileContext {
     Profile getProfile(Profile profile);
-    Profile updateProfile(Profile profile);
+    Profile createProfile(Profile profile);
     List<Profile> getAllProfiles();
 }

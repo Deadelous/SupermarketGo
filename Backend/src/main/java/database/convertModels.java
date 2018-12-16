@@ -5,7 +5,7 @@ import Model.Profile;
 import java.sql.ResultSet;
 
 public class convertProfiles {
-    public static Profile createProfile(ResultSet rs) throws Exception {
+    public static Profile createProfileModel(ResultSet rs) throws Exception {
         Profile profile = new Profile();
         profile.setId(rs.getString("id"));
         profile.setName(rs.getNString("Name"));

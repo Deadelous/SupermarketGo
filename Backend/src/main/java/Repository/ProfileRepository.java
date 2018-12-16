@@ -21,8 +21,8 @@ public class ProfileRepository implements IProfileContext{
     }
 
     @Override
-    public Profile updateProfile(Profile profile) {
-        return context.updateProfile(profile);
+    public Profile createProfile(Profile profile) {
+        return context.createProfile(profile);
     }
 
     @Override
