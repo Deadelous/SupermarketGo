@@ -1,12 +1,12 @@
-package model;
+package Model;
 
-public class product {
+public class Product {
     private int id;
     private String name;
     private String description;
     private double price;
 
-    public product(){
+    public Product(){
 
     }
 
@@ -44,7 +44,7 @@ public class product {
 
     @Override
     public String toString() {
-        return "product{" +
+        return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

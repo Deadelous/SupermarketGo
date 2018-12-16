@@ -13,7 +13,7 @@ public class database {
     public Connection openConnection() {
         try {
             if (conn == null || conn.isClosed()) {
-                String url = "";
+                String url = "jdbc:sqlserver://supermarketgo.database.windows.net:1433;database=Supermarket;user=adminSuper@supermarketgo;password=Trinity-2;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;";
 
                 conn = DriverManager.getConnection(url);
             }

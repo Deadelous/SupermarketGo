@@ -1,9 +1,9 @@
 package interfaces;
 
-import model.product;
+import Model.Product;
 
 public interface IProductContext {
-    product getProduct(int id);
-    product addProduct(product product);
-    product updateProduct(product product);
+    Product getProduct(int id);
+    Product addProduct(Product product);
+    Product updateProduct(Product product);
 }

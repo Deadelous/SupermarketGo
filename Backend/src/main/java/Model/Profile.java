@@ -1,21 +1,25 @@
-package model;
+package Model;
 
-public class profile {
-    private int id;
+public class Profile {
+    private String id;
     private String name;
     private String email;
     private String adress;
     private int age;
 
-    public profile(){
+    public Profile(){
 
     }
 
-    public int getId() {
+    public Profile(String id){
+        this.id = id;
+    }
+
+    public String getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -23,7 +27,7 @@ public class profile {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -31,7 +35,7 @@ public class profile {
         return email;
     }
 
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -39,7 +43,7 @@ public class profile {
         return adress;
     }
 
-    private void setAdress(String adress) {
+    public void setAdress(String adress) {
         this.adress = adress;
     }
 
@@ -47,13 +51,13 @@ public class profile {
         return age;
     }
 
-    private void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return "profile{" +
+        return "Profile{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

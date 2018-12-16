@@ -1,11 +1,12 @@
-package model;
+package Model;
 
-public class category {
+public class Department {
     private int id;
     private String name;
+    private String area;
     private String description;
 
-    public category(){
+    public Department(){
 
     }
 
@@ -25,6 +26,14 @@ public class category {
         this.name = name;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    private void setArea(String area) {
+        this.area = area;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -35,10 +44,13 @@ public class category {
 
     @Override
     public String toString() {
-        return "category{" +
+        return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", area='" + area + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
 }
+
+

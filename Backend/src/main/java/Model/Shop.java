@@ -1,11 +1,11 @@
-package model;
+package Model;
 
-public class shop {
+public class Shop {
     private int id;
     private String name;
     private int totalproducts;
 
-    public shop(){
+    public Shop(){
 
     }
 
@@ -35,7 +35,7 @@ public class shop {
 
     @Override
     public String toString() {
-        return "shop{" +
+        return "Shop{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", totalproducts=" + totalproducts +

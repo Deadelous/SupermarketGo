@@ -1,4 +1,4 @@
-package rest;
+package Rest;
 
 public class Response {
     private boolean success;

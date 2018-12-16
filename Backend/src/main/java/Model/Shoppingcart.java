@@ -1,14 +1,14 @@
-package model;
+package Model;
 
 import java.util.Date;
 
-public class shoppingcart {
+public class Shoppingcart {
     private int id;
     private String name;
     private int quantity;
     private Date date;
 
-    public shoppingcart(){
+    public Shoppingcart(){
 
     }
 
@@ -46,7 +46,7 @@ public class shoppingcart {
 
     @Override
     public String toString() {
-        return "shoppingcart{" +
+        return "Shoppingcart{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +

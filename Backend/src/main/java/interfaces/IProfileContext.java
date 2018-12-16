@@ -1,8 +1,11 @@
 package interfaces;
 
-import model.profile;
+import Model.Profile;
+
+import java.util.List;
 
 public interface IProfileContext {
-    profile getProfile(profile profile);
-    profile updateProfile(profile profile);
+    Profile getProfile(Profile profile);
+    Profile updateProfile(Profile profile);
+    List<Profile> getAllProfiles();
 }

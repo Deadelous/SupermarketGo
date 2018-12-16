@@ -1,11 +1,10 @@
 package interfaces;
 
-import model.account;
-import model.profile;
+import Model.Account;
 
 public interface IAccountContext {
-    account authenticate(account account);
-    account createAccount(account account);
-    account updateAccount(account account);
+    Account authenticate(Account account);
+    Account createAccount(Account account);
+    Account updateAccount(Account account);
 
 }

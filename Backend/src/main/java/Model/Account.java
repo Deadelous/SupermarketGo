@@ -1,13 +1,17 @@
-package model;
+package Model;
 
-public class account {
+public class Account {
     private int id;
     private String username;
     private String password;
     private double balance;
 
-    public account(){
+    public Account(){
 
+    }
+
+    public Account(int id){
+        this.id = id;
     }
 
     public int getId() {
@@ -44,7 +48,7 @@ public class account {
 
     @Override
     public String toString() {
-        return "account{" +
+        return "Account{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

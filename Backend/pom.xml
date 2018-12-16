@@ -67,58 +67,67 @@
             <type>jar</type>
         </dependency>
 
-        <!-- Jetty server
-             Note by Nico Kuijpers
-             Use version jetty-9.3.12 or higher for WebSockets
-             to avoid java.lang.NoClassDefFoundError, see
-             https://stackoverflow.com/questions/28170244/
-             jetty-throws-noclassdeffounderror-org-eclipse-jetty-util-futurecallback-on-shut
-        -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.0.0.jre8</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>9.4.12.v20180830</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>9.4.12.v20180830</version>
         </dependency>
 
-        <!-- Jersey -->
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server -->
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-server</artifactId>
-            <version>2.7</version>
+            <version>2.26-b03</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.containers/jersey-container-servlet -->
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-            <version>2.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-jetty-http</artifactId>
-            <version>2.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-moxy</artifactId>
-            <version>2.7</version>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>2.26-b03</version>
         </dependency>
 
         <!--  Gson: Java to Json conversion -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.2</version>
-            <scope>compile</scope>
+            <version>2.8.5</version>
         </dependency>
+
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.9</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.microsoft.azure/adal4j -->
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>adal4j</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+
 
         <!-- WebSockets -->
         <dependency>
@@ -147,6 +156,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.8.9</version>
+        </dependency>
+        <dependency>
+            <groupId>nl.cimsolutions</groupId>
+            <artifactId>CIMSolutions</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
