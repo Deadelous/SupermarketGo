@@ -2,25 +2,32 @@ package Websocket;
 
 import CommunicationShared.CommunicatorWebSocketMessage;
 import CommunicationShared.CommunicatorWebSocketMessageOperation;
+import Context.MYSQL.AccountMYSQLContext;
+import Model.Account;
 import Model.Shop;
+import Repository.AccountRepository;
 import WebsocketClient.CommunicatorMessage;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import database.*;
 
 import javax.websocket.*;
+import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@ServerEndpoint(value="/communicator/")
 public class CommunicatorServerWebSocket {
 
     // All sessions
     public static final Map<Integer, Session> sessions = new HashMap<>();
 
+
     private Gson gson = new Gson();
-    private static final Shop game = new Shop();
+    private  AccountRepository account = new AccountRepository(new accountContext());
     private static Integer count = 0;
 
     // Map each property to list of sessions that are subscribed to that property
@@ -74,28 +81,54 @@ public class CommunicatorServerWebSocket {
 
         // Process message based on operation
         String property = wbMessage.getProperty();
-        if (null != operation && null != property && !"".equals(property)) {
-            switch (operation) {
-                case REGISTERPROPERTY:
-                    // Register property if not registered yet
-                    if (propertySessions.get(property) == null) {
-                        propertySessions.put(property, new ArrayList<Session>());
+        if (null != operation && null != property && !"".equals(property)) switch (operation) {
+            case REGISTERPROPERTY:
+                // Register property if not registered yet
+                if (propertySessions.get(property) == null) {
+                    propertySessions.put(property, new ArrayList<Session>());
+                }
+                break;
+            case UNREGISTERPROPERTY:
+                // Do nothing as property may also have been registered by
+                // another client
+                break;
+            case SUBSCRIBETOPROPERTY:
+                // Subsribe to property if the property has been registered
+                if (propertySessions.get(property) != null) {
+                    propertySessions.get(property).add(session);
+                }
+                break;
+            case UNSUBSCRIBEFROMPROPERTY:
+                // Unsubsribe from property if the property has been registered
+                if (propertySessions.get(property) != null) {
+                    propertySessions.get(property).remove(session);
+                }
+                break;
+            case UPDATEPROPERTY:
+                // Send the message to all clients that are subscribed to this property
+                System.out.println("[WebSocket send ] " + jsonMessage + " to:");
+                switch (property) {
+                    case "registerAccount": {
+                        Account player = gson.fromJson(wbMessage.getContent(), Account.class);
+                        account.createAccount(player);
+                        sendMessage(account, "createprofile");
+                        break;
                     }
-                    break;
-            }
+
+                }
         }
     }
 
-   /* private void sendMessage(GuiDTO guiDTO, String property) {
-        Session session = sessions.get(guiDTO.getPlayerNr());
+    private void sendMessage(AccountRepository account, String property) {
+        Account create = new Account();
+        Session session = sessions.get(account.createAccount(create));
         CommunicatorMessage message = new CommunicatorMessage();
         message.setProperty(property);
-        message.setContent(gson.toJson(guiDTO));
+        message.setContent(gson.toJson(account));
         try {
             session.getBasicRemote().sendText(gson.toJson(message));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-*/
 }
