@@ -14,8 +14,8 @@ public class ProductRepository implements IProductContext {
    }
 
     @Override
-    public Product getProduct(int id) {
-        return context.getProduct(id);
+    public Product getProduct(Product product) {
+        return context.getProduct(product);
     }
 
     @Override

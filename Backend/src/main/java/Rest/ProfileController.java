@@ -9,8 +9,8 @@ import Repository.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
-
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
 @Path("/Profile")
 public class ProfileController {
     private ProfileRepository profileRepository = new ProfileRepository(new profileContext());

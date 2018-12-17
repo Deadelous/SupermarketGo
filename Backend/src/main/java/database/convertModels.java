@@ -1,6 +1,7 @@
 package database;
 
 import Model.Account;
+import Model.Product;
 import Model.Profile;
 
 import java.sql.ResultSet;
@@ -22,5 +23,14 @@ public class convertModels {
         account.setUsername(rs.getNString("Username"));
         account.setPassword(rs.getString("Password"));
         return account;
+    }
+
+    public static Product createProductModel(ResultSet rs) throws Exception{
+        Product product = new Product();
+        product.setId(rs.getString("id"));
+        product.setName(rs.getNString("Name"));
+        product.setDescription(rs.getNString("Description"));
+        product.setPrice(rs.getDouble("Price"));
+        return product;
     }
 }
