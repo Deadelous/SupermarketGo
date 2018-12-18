@@ -2,7 +2,6 @@ package Websocket;
 
 import CommunicationShared.CommunicatorWebSocketMessage;
 import CommunicationShared.CommunicatorWebSocketMessageOperation;
-import Context.MYSQL.AccountMYSQLContext;
 import Model.Account;
 import Model.Shop;
 import Repository.AccountRepository;
@@ -88,22 +87,6 @@ public class CommunicatorServerWebSocket {
                     propertySessions.put(property, new ArrayList<Session>());
                 }
                 break;
-            case UNREGISTERPROPERTY:
-                // Do nothing as property may also have been registered by
-                // another client
-                break;
-            case SUBSCRIBETOPROPERTY:
-                // Subsribe to property if the property has been registered
-                if (propertySessions.get(property) != null) {
-                    propertySessions.get(property).add(session);
-                }
-                break;
-            case UNSUBSCRIBEFROMPROPERTY:
-                // Unsubsribe from property if the property has been registered
-                if (propertySessions.get(property) != null) {
-                    propertySessions.get(property).remove(session);
-                }
-                break;
             case UPDATEPROPERTY:
                 // Send the message to all clients that are subscribed to this property
                 System.out.println("[WebSocket send ] " + jsonMessage + " to:");
@@ -111,24 +94,10 @@ public class CommunicatorServerWebSocket {
                     case "registerAccount": {
                         Account player = gson.fromJson(wbMessage.getContent(), Account.class);
                         account.createAccount(player);
-                        sendMessage(account, "createprofile");
                         break;
                     }
 
                 }
-        }
-    }
-
-    private void sendMessage(AccountRepository account, String property) {
-        Account create = new Account();
-        Session session = sessions.get(account.createAccount(create));
-        CommunicatorMessage message = new CommunicatorMessage();
-        message.setProperty(property);
-        message.setContent(gson.toJson(account));
-        try {
-            session.getBasicRemote().sendText(gson.toJson(message));
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

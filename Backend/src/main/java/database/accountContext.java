@@ -13,7 +13,28 @@ public class accountContext extends database implements IAccountContext {
 
     @Override
     public Account authenticate(Account account) {
-        return null;
+        Account login = new Account();
+        try {
+            String SPsql = "EXEC login ?, ?, ?";
+            Connection connection = openConnection();
+            CallableStatement stmt = connection.prepareCall(SPsql);
+            stmt.setInt(1, login.getId());
+            stmt.setString(2, login.getUsername());
+            stmt.setString(3, login.getPassword());
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next())
+            {
+                login = createAccountModel(rs);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e);
+            return null;
+        } finally {
+            closeConnection();
+        }
+        return login;
     }
 
     @Override

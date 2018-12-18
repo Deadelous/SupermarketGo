@@ -20,8 +20,8 @@ public class convertModels {
     public static Account createAccountModel(ResultSet rs) throws Exception {
         Account account = new Account();
         account.setId(rs.getInt("id"));
-        account.setUsername(rs.getNString("Username"));
-        account.setPassword(rs.getString("Password"));
+        account.setUsername(rs.getNString("username"));
+        account.setPassword(rs.getString("password"));
         return account;
     }
 

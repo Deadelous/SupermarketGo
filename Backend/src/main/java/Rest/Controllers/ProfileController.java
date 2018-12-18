@@ -1,4 +1,4 @@
-package Rest;
+package Rest.Controllers;
 
 
 import WebService.Models.JsonLogic;

@@ -8,7 +8,7 @@ import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainer
 import javax.websocket.server.ServerContainer;
 
 public class WebsocketServer {
-    private static final int PORT = 8095;
+    private static final int PORT = 8096;
 
     /**
      * @param args the command line arguments

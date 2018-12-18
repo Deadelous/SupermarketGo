@@ -85,38 +85,6 @@ public class CommunicatorClientWebSocket extends Communicator {
     }
 
     @Override
-    public void register(String property) {
-        CommunicatorWebSocketMessage message = new CommunicatorWebSocketMessage();
-        message.setOperation(CommunicatorWebSocketMessageOperation.REGISTERPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    @Override
-    public void unregister(String property) {
-        CommunicatorWebSocketMessage message = new CommunicatorWebSocketMessage();
-        message.setOperation(CommunicatorWebSocketMessageOperation.UNREGISTERPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    @Override
-    public void subscribe(String property) {
-        CommunicatorWebSocketMessage message = new CommunicatorWebSocketMessage();
-        message.setOperation(CommunicatorWebSocketMessageOperation.SUBSCRIBETOPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    @Override
-    public void unsubscribe(String property) {
-        CommunicatorWebSocketMessage message = new CommunicatorWebSocketMessage();
-        message.setOperation(CommunicatorWebSocketMessageOperation.UNSUBSCRIBEFROMPROPERTY);
-        message.setProperty(property);
-        sendMessageToServer(message);
-    }
-
-    @Override
     public void update(CommunicatorMessage message) {
         CommunicatorWebSocketMessage wsMessage = new CommunicatorWebSocketMessage();
         wsMessage.setOperation(CommunicatorWebSocketMessageOperation.UPDATEPROPERTY);

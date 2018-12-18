@@ -23,7 +23,7 @@ public class RestServer {
                   context.addServlet(ServletContainer.class, "/*");
           jerseyServlet.setInitOrder(0);
           // Tells the Jersey Servlet which REST service/class to load.
-          jerseyServlet.setInitParameter("jersey.config.server.provider.packages", "Rest");
+          jerseyServlet.setInitParameter("jersey.config.server.provider.packages", "Rest/Controllers");
           try {
               jettyServer.start();
               System.out.println(jettyServer.getURI());
