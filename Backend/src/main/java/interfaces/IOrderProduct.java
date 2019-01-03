@@ -1,4 +1,9 @@
 package interfaces;
 
-public class IOrderProduct {
+import Model.Product;
+
+public interface IOrderProduct {
+    boolean addProduct(Product product);
+    Product changeProduct();
+    void deleteProduct();
 }
