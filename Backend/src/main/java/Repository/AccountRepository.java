@@ -1,6 +1,6 @@
 package Repository;
 
-import interfaces.IAccountContext;
+import interfaces.Context.IAccountContext;
 import Model.Account;
 
 public class AccountRepository implements IAccountContext {

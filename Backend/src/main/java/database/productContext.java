@@ -1,7 +1,7 @@
 package database;
 
 import Model.Product;
-import interfaces.IProductContext;
+import interfaces.Context.IProductContext;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

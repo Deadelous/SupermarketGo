@@ -52,6 +52,7 @@ public class AccountController {
                 jsonResult.setResult(true);
                 jsonResult.setMessage("Successfully logged in");
                 jsonResult.setItem(loggedIn);
+                System.out.println("Account is successfully logged in for account:" + " " + account.getUsername());
 
             } else {
                 jsonResult.setResult(false);

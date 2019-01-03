@@ -1,7 +1,9 @@
 package facade;
 
-import interfaces.*;
 import Repository.*;
+import interfaces.Context.IAccountContext;
+import interfaces.Context.IProductContext;
+import interfaces.Context.IProfileContext;
 
 
 public class supermarkefacade {

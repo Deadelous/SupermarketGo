@@ -87,7 +87,6 @@ public class CommunicatorClientWebSocket extends Communicator {
     @Override
     public void update(CommunicatorMessage message) {
         CommunicatorWebSocketMessage wsMessage = new CommunicatorWebSocketMessage();
-        wsMessage.setOperation(CommunicatorWebSocketMessageOperation.UPDATEPROPERTY);
         wsMessage.setProperty(message.getProperty());
         wsMessage.setContent(message.getContent());
         sendMessageToServer(wsMessage);

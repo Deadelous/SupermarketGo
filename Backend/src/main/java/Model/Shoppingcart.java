@@ -1,12 +1,17 @@
 package Model;
 
-import java.util.Date;
+import interfaces.IOrderProduct;
 
-public class Shoppingcart {
+import java.util.Date;
+import java.util.List;
+
+public class Shoppingcart implements IOrderProduct {
     private int id;
     private String name;
     private int quantity;
     private Date date;
+
+    private List<Product> products;
 
     public Shoppingcart(){
 
@@ -52,5 +57,20 @@ public class Shoppingcart {
                 ", quantity=" + quantity +
                 ", date=" + date +
                 '}';
+    }
+
+    @Override
+    public boolean addProduct(Product product) {
+        return products.add(product);
+    }
+
+    @Override
+    public Product changeProduct() {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct() {
+
     }
 }

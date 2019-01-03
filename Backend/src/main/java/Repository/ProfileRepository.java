@@ -1,6 +1,6 @@
 package Repository;
 
-import interfaces.IProfileContext;
+import interfaces.Context.IProfileContext;
 import Model.Profile;
 
 import java.util.List;

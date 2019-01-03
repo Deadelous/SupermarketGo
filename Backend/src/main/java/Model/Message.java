@@ -1,12 +1,15 @@
 package Model;
 
 public class Message {
+    private int id;
     private String from;
     private String to;
     private String content;
 
     public Message() {
     }
+
+
 
     public String getFrom() {
         return from;

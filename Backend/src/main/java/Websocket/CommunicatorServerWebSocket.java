@@ -2,8 +2,7 @@ package Websocket;
 
 import CommunicationShared.CommunicatorWebSocketMessage;
 import CommunicationShared.CommunicatorWebSocketMessageOperation;
-import Model.Account;
-import Model.Shop;
+import Model.*;
 import Repository.AccountRepository;
 import WebsocketClient.CommunicatorMessage;
 import com.google.gson.Gson;
@@ -86,18 +85,41 @@ public class CommunicatorServerWebSocket {
                 if (propertySessions.get(property) == null) {
                     propertySessions.put(property, new ArrayList<Session>());
                 }
+            case SUBSCRIBETOPROPERTY:
+                // Subsribe to property if the property has been registered
+                if (propertySessions.get(property) != null) {
+                    propertySessions.get(property).add(session);
+                }
                 break;
             case UPDATEPROPERTY:
                 // Send the message to all clients that are subscribed to this property
                 System.out.println("[WebSocket send ] " + jsonMessage + " to:");
                 switch (property) {
-                    case "registerAccount": {
+                    case "LoginAccount": {
                         Account player = gson.fromJson(wbMessage.getContent(), Account.class);
-                        account.createAccount(player);
+                        account.authenticate(player);
+                        sendMessage(player, "login");
                         break;
                     }
-
+                    default:
+                        System.out.println("[WebSocket ERROR: cannot process Json message " + jsonMessage);
+                        break;
                 }
         }
     }
+
+
+        private void sendMessage(Account account, String property) {
+            Session session = sessions.get(account.getId());
+            CommunicatorMessage message = new CommunicatorMessage();
+            message.setProperty(property);
+            message.setContent(gson.toJson(account));
+            try {
+                session.getBasicRemote().sendText(gson.toJson(message));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 }
+
+

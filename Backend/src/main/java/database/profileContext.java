@@ -1,7 +1,7 @@
 package database;
 
 import Model.Profile;
-import interfaces.IProfileContext;
+import interfaces.Context.IProfileContext;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

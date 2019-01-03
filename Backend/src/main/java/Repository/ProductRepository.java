@@ -1,6 +1,6 @@
 package Repository;
 
-import interfaces.IProductContext;
+import interfaces.Context.IProductContext;
 import Model.Product;
 
 public class ProductRepository implements IProductContext {

@@ -1,9 +1,13 @@
 package Model;
 
+import enums.client;
+
 public class Account {
     private int id;
     private String username;
     private String password;
+    private String role;
+    private client client;
 
     public Account(){
 
@@ -12,6 +16,14 @@ public class Account {
     public Account(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Account(int id){
