@@ -19,13 +19,18 @@ public class AccountRepository implements IAccountContext {
     }
 
     @Override
-    public boolean createAccount(Account account) {
+    public Account createAccount(Account account) {
         return context.createAccount(account);
     }
 
     @Override
     public Account updateAccount(Account account) {
         return context.updateAccount(account);
+    }
+
+    @Override
+    public Account getAccount(Account account) {
+        return context.getAccount(account);
     }
 
 }

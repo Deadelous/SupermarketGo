@@ -1,11 +1,14 @@
 package Rest;
 
+import WebService.JettyServer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 
 public class RestServer {
+    private Server jettyServer;
+
       public void startRestServer() {
           System.out.println(RestStart.class.getCanonicalName());
           //System.setProperty("org.eclipse.jetty.LEVEL", "OFF");
@@ -16,7 +19,7 @@ public class RestServer {
                   ServletContextHandler(ServletContextHandler.SESSIONS);
           context.setContextPath("/");
 
-          Server jettyServer = new Server(8090);
+          jettyServer = new Server(8090);
 
           jettyServer.setHandler(context);
           ServletHolder jerseyServlet =
@@ -33,4 +36,13 @@ public class RestServer {
 
           }
       }
+
+    public void stopServer() {
+        try {
+            jettyServer.stop();
+            System.out.println("Jetty was stopped");
+        } catch (Exception error) {
+            System.out.println("Server threw an while stopping error: " + error);
+        }
+    }
 }

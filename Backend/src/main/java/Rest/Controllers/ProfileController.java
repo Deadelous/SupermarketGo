@@ -11,11 +11,11 @@ import javax.ws.rs.core.Response;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-@Path("/Profile")
+@Path("/api")
 public class ProfileController {
     private ProfileRepository profileRepository = new ProfileRepository(new profileContext());
     @GET
-    @Path("/info/{id}")
+    @Path("/profile/info/{id}")
     @Produces({APPLICATION_JSON})
     public Response getProfile(@PathParam("id") String id) {
        Profile profile;
@@ -39,7 +39,7 @@ public class ProfileController {
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    @Path("/Create")
+    @Path("/profile/create")
     public Response createProfile(String json) {
         Profile profile = (Profile) JsonLogic.getObject(Profile.class, json);
         JsonResult result = new JsonResult();

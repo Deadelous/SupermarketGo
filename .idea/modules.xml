@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SupermarketGo.iml" filepath="$PROJECT_DIR$/.idea/SupermarketGo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/Supermarkt.iml" filepath="$PROJECT_DIR$/Backend/Supermarkt.iml" />
+    </modules>
+  </component>
+</project>

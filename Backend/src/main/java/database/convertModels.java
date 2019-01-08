@@ -10,27 +10,27 @@ public class convertModels {
     public static Profile createProfileModel(ResultSet rs) throws Exception {
         Profile profile = new Profile();
         profile.setId(rs.getString("id"));
-        profile.setName(rs.getNString("Name"));
-        profile.setEmail(rs.getString("Email"));
-        profile.setAdress(rs.getString("Adress"));
-        profile.setAge(rs.getInt("Age"));
         return profile;
     }
 
     public static Account createAccountModel(ResultSet rs) throws Exception {
         Account account = new Account();
-        account.setId(rs.getInt("id"));
+        account.setId(rs.getString("id"));
         account.setUsername(rs.getNString("username"));
         account.setPassword(rs.getString("password"));
+        account.setLastname(rs.getNString("lastname"));
+        account.setEmail(rs.getString("Email"));
         return account;
     }
 
-    public static Product createProductModel(ResultSet rs) throws Exception{
+    public static Product createProductModel(ResultSet rs) throws Exception {
         Product product = new Product();
-        product.setId(rs.getString("id"));
+        product.setId(rs.getInt("id"));
         product.setName(rs.getNString("Name"));
         product.setDescription(rs.getNString("Description"));
         product.setPrice(rs.getDouble("Price"));
+        product.setImage(rs.getString("Picture"));
         return product;
     }
 }
+

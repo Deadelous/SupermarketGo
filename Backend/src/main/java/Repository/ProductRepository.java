@@ -3,6 +3,8 @@ package Repository;
 import interfaces.Context.IProductContext;
 import Model.Product;
 
+import java.util.List;
+
 public class ProductRepository implements IProductContext {
    IProductContext context;
 
@@ -27,4 +29,10 @@ public class ProductRepository implements IProductContext {
     public Product updateProduct(Product product) {
         return context.updateProduct(product);
     }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return context.getAllProducts();
+    }
+
 }
